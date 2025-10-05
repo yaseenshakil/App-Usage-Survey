@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>App Survey</title>
+         <script type="text/javascript">
+            var activity_bar_chart_data = {{ activity_results | tojson}}
+            var time_spent_bar_chart = {{ daily_time_spent | tojson}}
+            var survey_count_data = {{survey_count_data | tojson}}
+        </script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{{url_for('static', filename='js/chart_functions.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+        <!-- <script src="path/to/chartjs/dist/chart.umd.min.js"></script> -->
+
+    </head>
+    <body>
+        <h1>Summary Statistics</h1>
+        <br>
+        <h2>Text Responses of survey</h2>
+        <table class="pure-table summary-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>App you can't live without</th>
+                <th>Additional Feedback</th>
+            </tr>
+        </thead>
+        {% for entry in text_results %}
+            <tr>
+                <td>{{ entry['id'] }} </td>
+                <td>{{ entry['app'] }}</td>   
+                <td>{{ entry['feedback'] }} </td> 
+            </tr>
+        {% endfor %}
+        </table>
+        <div id="activityChartDiv">
+            <h2>Bar Chart for the question: "What do you spend most of your time on your phone doing?"</h2>
+            <canvas id="barChart1"></canvas>
+        </div>
+        <div id="timeSpentChartDiv">
+            <h2>Bar Chart of the question: "On average, how much time do you spend daily on your most used app?"</h2>
+            <canvas id="barChart2"></canvas>
+        </div>
+        <div id="surveyResponseCountDiv">
+            <h2>Line Chart demonstrating the count of survey reponses per day</h2>
+            <canvas id="lineChart1"></canvas>
+        </div>
+       
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>App Survey</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{url_for('static', filename='js/processor.js') }}"></script>
+</head>
+<body>
+    <div class="survey-main-div">
+        <div class="survey-container">
+            <h2 class="form-heading">📱 App Usage Survey</h2>
+            <form id="surveyForm" class="pure-form pure-form-stacked" action="/processResponse" method="POST">
+                <label for="phoneInput">What is one app you cannot live without?</label>
+                <input id="phoneInput" name="favoriteApp" type="text" minlength="3" required>
+                <fieldset class="pure-group">
+                    <label>What do you spend most of your time on your phone doing?</label>
+                    <label>  
+                        <input type="radio" name="phoneActivity" value="Doom-scrolling" class="pure-radio">
+                        Doom-scrolling 
+                    </label>
+                    <label>
+                        <input type="radio" name="phoneActivity" value="Snapping pictures of this beautiful city">
+                        Snapping pictures of this beautiful city
+                    </label>
+                    <label>
+                        <input type="radio" name="phoneActivity" value="Asking ChatGPT how to solve my life's problems">
+                        Asking ChatGPT how to solve my life's problems
+                    </label>
+                    <label>
+                        <input type="radio" name="phoneActivity" value="Browsing my Canvas Courses Pages">
+                        Browsing my Canvas Courses Pages
+                    </label>
+                </fieldset>
+                <label for="timeSpent">On average, how much time do you spend daily on your most used app?</label>
+                <select id="timeSpent" name="timeSpent">
+                    <option value="Less than 1 hour">Less than 1 hour</option>
+                    <option value="1-3 hours">1–3 hours</option>
+                    <option value="3-5 hours">3–5 hours</option>
+                    <option value="More than 5 hours">More than 5 hours</option>
+                </select>
+                <label>Would you like to share more about your app usage?</label>
+                <label>
+                    <input id="feedbackCheckbox" type="checkbox" onchange="toggleInput(event)">
+                    Yes, I’d like to share more
+                </label>
+                <label for="moreInfo" id="moreInfoLabel">Please share your feedback about your app usage:</label>
+                <textarea id="moreInfo" name="moreInfo"></textarea>
+                <br>
+                <button type="submit" class="pure-button pure-button-primary">Submit Survey Response</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

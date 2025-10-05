@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    
+}
+.survey-container {
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    position: absolute;
+    left: 20%;
+    background-color:gainsboro;
+    padding: 20px;
+    top: 15%;
+    border-radius: 20px;
+}
+
+.survey-main-div{
+    height: 100vh;
+    background-image: url("../img/app-icons.png");
+    background-repeat: repeat;
+
+}
+textarea {
+    width: 100%;
+    min-height: 100px;
+    display: none; 
+}
+.form-heading {
+    margin-bottom: 1em;
+}
+
+#moreInfo{
+    display: none;
+}
+
+#moreInfoLabel{
+    display: none;
+}
+
+#phoneInput{
+    width: 100%;
+}
+
+#activityChartDiv{
+    width: 50%
+}
+
+#timeSpentChartDiv{
+    width: 50%
+}
+
+/* #leftside, #rightside{
+    height: 100%;
+    background-color: darkslategrey;
+    opacity: 80%; */
+
+/* } */
+
+#index-parent-div {
+  /* display: flex; */
+  height: 100vh;             /* full viewport height */
+  /* text-align: center;        center text inside */ 
+  background-image: url("../img/app-icons.png");
+  background-repeat: repeat;
+}
+
+#indexDiv{
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    width: 50%;
+    height: 30%;
+    background-color:gainsboro;
+    padding: 2em;
+    border-radius: 20px;
+
+    
+}
+
+#decline-button{
+    background-color: #cf513e;
+    margin-bottom: 1em;
+}
+
+#consent-button{
+    background-color: #316327;
+}
+
+.summary-table{
+    height: 30%;
+    width: 60%;
+    margin-left: 2em;
+    overflow-y: scroll
+}
